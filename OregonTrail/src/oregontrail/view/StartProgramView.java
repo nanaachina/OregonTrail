@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package oregontrail.view;
 
 import control.GameControl;
 import java.util.Scanner;
 import oregontrail.view.Player;
 
-
 /**
  *
- * @author Fernando
+ * @author adm-achina
  */
 public class StartProgramView {
     

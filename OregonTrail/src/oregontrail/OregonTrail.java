@@ -5,19 +5,31 @@
  */
 package oregontrail;
 
-import view.StartProgramView;
-import model.Game;
-import model.Player;
+import oregontrail.view.Game;
+import oregontrail.view.Player;
+import oregontrail.model.InventoryItem;
+import oregontrail.model.LandMark;
+import oregontrail.model.Trade;
+import oregontrail.view.StartProgramView;
 
-/**x
+
+
+/**
  *
- * @author Fernando
+ * @author adm-achina
  */
 public class OregonTrail {
-    
+
     private static Game currentGame = null;
     private static Player player = null;
+    
+    public static void main(String[] args) {
 
+    // create StartProgramViewOrig and display the start program view
+    StartProgramView startProgramView = new StartProgramView();
+    startProgramView.displayStartProgramView();
+    }
+    
     public static Game getCurrentGame() {
         return currentGame;
     }
@@ -33,11 +45,4 @@ public class OregonTrail {
     public static void setPlayer(Player player) {
         OregonTrail.player = player;
     }
-    
-    
-    
-    public static void main(String[] args) {
-       StartProgramView startProgramView = new StartProgramView();
-       startProgramView.displayStartProgramView();
-}
 }
