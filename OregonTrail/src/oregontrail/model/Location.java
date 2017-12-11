@@ -3,25 +3,41 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oregontrail.view;
+package oregontrail.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
- * @author glauc
+ * @author adm-achina
  */
 public class Location implements Serializable{
+    
+    
+    // variables
     private int row;
     private int column;
-    private String city;
-    private int days;
     private boolean visited;
-
-    public Location(){
-        
+    private Scene scene;
+    private Actor actor; // only one actor per location
+    
+    // default constructor function
+    public Location() {
+    }   
+    
+    public Location(int row, int column, Scene scene, Actor[] actors) {
+    this.row = row;
+    this.column = column;
+    this.visited = false;
+    this.scene = scene;
+    this.actor = actor;
     }
+
+    public Location(int row, int column) {
+        this.row = row;
+        this.column = column;
+    }    
+    // getters and setters
     public int getRow() {
         return row;
     }
@@ -38,41 +54,41 @@ public class Location implements Serializable{
         this.column = column;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public int getDays() {
-        return days;
-    }
-
-    public void setDays(int days) {
-        this.days = days;
-    }
-
-    public boolean getVisited() {
+    public boolean isVisited() {
         return visited;
     }
 
     public void setVisited(boolean visited) {
         this.visited = visited;
     }
+    
+    public Scene getScene() {
+        return scene;
+    }
+    
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+    
+    public Actor getActor() {
+        return actor;
+    }
+    
+    public void setActor(Actor actor) {
+        this.actor = actor;
+    }
 
+    // hashcode function
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 13 * hash + this.row;
-        hash = 13 * hash + this.column;
-        hash = 13 * hash + Objects.hashCode(this.city);
-        hash = 13 * hash + this.days;
-        hash = 13 * hash + (this.visited ? 1 : 0);
+        int hash = 5;
+        hash = 97 * hash + this.row;
+        hash = 97 * hash + this.column;
+        hash = 97 * hash + (this.visited ? 1 : 0);
         return hash;
     }
 
+    // equals function
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -91,22 +107,19 @@ public class Location implements Serializable{
         if (this.column != other.column) {
             return false;
         }
-        if (this.days != other.days) {
-            return false;
-        }
         if (this.visited != other.visited) {
-            return false;
-        }
-        if (!Objects.equals(this.city, other.city)) {
             return false;
         }
         return true;
     }
-
+    
+    // toString function
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", city=" + city + ", days=" + days + ", visited=" + visited + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + '}';
     }
     
-    
 }
+
+    
+

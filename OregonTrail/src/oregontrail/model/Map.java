@@ -3,92 +3,82 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oregontrail.view;
+package oregontrail.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Objects;
+import java.util.Arrays;
 
 /**
  *
- * @author glauc
+ * @author adm-achina
  */
-public class Map implements Serializable{
-    private String description;
-    private int rowCount;
-    private String cityName;
-    private int columnCount;
-    private String currentCity;
-    private String wearther;
-    private ArrayList<Game> games = new ArrayList<>();
+
+public class Map implements Serializable {
     
-    public Map(){
+    private int noOfRows;
+    private int noOfColumns;
+    private Location[][] locations;
+
+    public Map() {     
+    }
+    
+    public Map(int noOfRows, int noOfColumns) {
         
-    }
-
-    public Map(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        if (noOfRows < 1 || noOfColumns < 1) {
+            System.out.println("The number of rows and columns must be > zero");
+            return;
+        }
         
-    public String getWearther() {
-        return wearther;
+        this.noOfRows = noOfRows;
+        this.noOfColumns = noOfColumns;
+        
+        // create 2-D array for Location objects
+        this.locations = new Location[noOfRows][noOfColumns];
+        
+        for (int row = 0; row < noOfRows; row++) {
+            for(int column = 0; column < noOfColumns; column++) {
+                // create and initialize new Location object instance
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(false);
+                
+                // assign the Location object to the current position in array
+                locations[row][column] = location;          
+            }
+        }
     }
 
-    public void setWearther(String wearther) {
-        this.wearther = wearther;
+    public int getNoOfRows() {
+        return noOfRows;
     }
 
-    public String getCurrentCity() {
-        return currentCity;
+    public void setNoOfRows(int noOfRows) {
+        this.noOfRows = noOfRows;
     }
 
-    public void setCurrentCity(String currentCity) {
-        this.currentCity = currentCity;
-    }
-    private String weather;
-    
-    public String getDescription() {
-        return description;
+    public int getNoOfColumns() {
+        return noOfColumns;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setNoOfColumns(int noOfColumns) {
+        this.noOfColumns = noOfColumns;
     }
 
-    public int getRowCount() {
-        return rowCount;
+    public Location[][] getLocations() {
+        return locations;
     }
 
-    public void setRowCount(int rowCount) {
-        this.rowCount = rowCount;
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
     }
 
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    public int getColumnCount() {
-        return columnCount;
-    }
-
-    public void setColumnCount(int columnCount) {
-        this.columnCount = columnCount;
-    }
-
- 
-    
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.description);
-        hash = 37 * hash + this.rowCount;
-        hash = 37 * hash + Objects.hashCode(this.cityName);
-        hash = 37 * hash + this.columnCount;
-        hash = 37 * hash + Objects.hashCode(this.wearther);
+        int hash = 3;
+        hash = 31 * hash + this.noOfRows;
+        hash = 31 * hash + this.noOfColumns;
+        hash = 31 * hash + Arrays.deepHashCode(this.locations);
         return hash;
     }
 
@@ -104,30 +94,21 @@ public class Map implements Serializable{
             return false;
         }
         final Map other = (Map) obj;
-        if (this.rowCount != other.rowCount) {
+        if (this.noOfRows != other.noOfRows) {
             return false;
         }
-        if (this.columnCount != other.columnCount) {
+        if (this.noOfColumns != other.noOfColumns) {
             return false;
         }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.cityName, other.cityName)) {
-            return false;
-        }
-        if (!Objects.equals(this.wearther, other.wearther)) {
+        if (!Arrays.deepEquals(this.locations, other.locations)) {
             return false;
         }
         return true;
     }
-    
-        @Override
-    public String toString() {
-        return "Map{" + "description=" + this.description + ", rowCount=" + this.rowCount + ", cityName=" + this.cityName + ", columnCount=" + this.columnCount + ", currentCity=" + this.currentCity + ", wearther=" + this.wearther + " }";
-    }
 
-    public Location[][] getLocations() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public String toString() {
+        return "Map{" + "noOfRows=" + noOfRows + ", noOfColumns=" + noOfColumns + ", locations=" + locations + '}';
     }
+    
 }

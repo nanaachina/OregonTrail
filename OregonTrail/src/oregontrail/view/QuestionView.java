@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oregontrail.model;
+package oregontrail.view;
 
 /**
  *
  * @author adm-achina
  */
-public enum Item {
-    oxen,
-    food,
-    clothing,
-    ammunition,
-    wheel,
-    axle,
-    tongue;    
+public class QuestionView {
+    
 }

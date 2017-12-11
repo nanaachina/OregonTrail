@@ -3,18 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package control;
+package oregontrail.control;
 
 
-import model.Game;
-import model.InventoryItem;
-import model.Location;
-import model.Map;
-import model.Question;
-import model.QuestionType;
-import model.Scene;
-import model.SceneType;
-import static model.SceneType.start;
+import oregontrail.model.Game;
+import oregontrail.model.Location;
+import oregontrail.model.Map;
+import oregontrail.model.Scene;
+import oregontrail.model.SceneType;
 import oregontrail.OregonTrail;
 
 /**
@@ -22,6 +18,7 @@ import oregontrail.OregonTrail;
  * @author adm-achina
  */
 public class MapControl {
+    private static Scene[] scenes;
     
     public static Map createMap(){
         // create the map
@@ -45,7 +42,7 @@ public class MapControl {
     public static Scene[] createScenes() {
         // create scenes
         Game game = OregonTrail.getCurrentGame();
-        Scene[] scenes = new Scene[SceneType.values().length];
+        //Scene[] scenes = new Scene[SceneType.values()];
         
         Scene start = new Scene();
         start.setSceneType(0);
@@ -53,7 +50,7 @@ public class MapControl {
         start.setBlocked(false);
         start.setMapSymbol("");
         start.setTravelTime(0);
-        scenes[SceneType.start.ordinal()] = start;
+        scenes[SceneType.start()] = start;
         
         Scene store = new Scene();
         store.setSceneType(0);
@@ -61,7 +58,7 @@ public class MapControl {
         store.setBlocked(false);
         store.setMapSymbol("");
         store.setTravelTime(0);
-        scenes[SceneType.store.ordinal()] = store;
+        scenes[SceneType.store()] = store;
 
         Scene mountain = new Scene();
         mountain.setSceneType(0);
@@ -69,7 +66,7 @@ public class MapControl {
         mountain.setBlocked(false);
         mountain.setMapSymbol("");
         mountain.setTravelTime(0);
-        scenes[SceneType.mountain.ordinal()] = mountain;
+        scenes[SceneType.mountainl()] = mountain;
 
         Scene river = new Scene();
         river.setSceneType(0);
@@ -77,7 +74,7 @@ public class MapControl {
         river.setBlocked(false);
         river.setMapSymbol("");
         river.setTravelTime(0);
-        scenes[SceneType.river.ordinal()] = river;
+        scenes[SceneType.river()] = river;
         
         Scene wilderness = new Scene();
         wilderness.setSceneType(0);
@@ -85,7 +82,7 @@ public class MapControl {
         wilderness.setBlocked(false);
         wilderness.setMapSymbol("");
         wilderness.setTravelTime(0);
-        scenes[SceneType.wilderness.ordinal()] = wilderness;
+        scenes[SceneType.wilderness()] = wilderness;
         
         Scene hunt = new Scene();
         hunt.setSceneType(0);
@@ -93,7 +90,7 @@ public class MapControl {
         hunt.setBlocked(false);
         hunt.setMapSymbol("");
         hunt.setTravelTime(0);
-        scenes[SceneType.hunt.ordinal()] = hunt;
+        scenes[SceneType.hunt()] = hunt;
         
         Scene fort = new Scene();
         fort.setSceneType(0);
@@ -101,7 +98,7 @@ public class MapControl {
         fort.setBlocked(false);
         fort.setMapSymbol("");
         fort.setTravelTime(0);
-        scenes[SceneType.fort.ordinal()] = fort;
+        scenes[SceneType.fort()] = fort;
         
         Scene bridge = new Scene();
         bridge.setSceneType(0);
@@ -109,7 +106,7 @@ public class MapControl {
         bridge.setBlocked(false);
         bridge.setMapSymbol("");
         bridge.setTravelTime(0);
-        scenes[SceneType.bridge.ordinal()] = bridge;
+        scenes[SceneType.bridge()] = bridge;
         
         Scene finish = new Scene();
         finish.setSceneType(0);
@@ -117,7 +114,7 @@ public class MapControl {
         finish.setBlocked(false);
         finish.setMapSymbol("");
         finish.setTravelTime(0);
-        scenes[SceneType.finish.ordinal()] = finish;
+        scenes[SceneType.finish()] = finish;
         
         return scenes;
     }

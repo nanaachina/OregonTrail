@@ -5,11 +5,13 @@
  */
 package oregontrail;
 
-import oregontrail.view.Game;
-import oregontrail.view.Player;
+import oregontrail.model.Game;
+import oregontrail.model.Player;
 import oregontrail.model.InventoryItem;
 import oregontrail.model.LandMark;
+import oregontrail.model.RandomEvent;
 import oregontrail.model.Trade;
+import oregontrail.view.StartProgramView;
 import oregontrail.view.StartProgramView;
 
 

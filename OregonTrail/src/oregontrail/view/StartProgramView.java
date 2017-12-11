@@ -5,9 +5,9 @@
  */
 package oregontrail.view;
 
-import control.GameControl;
+import oregontrail.control.GameControl;
 import java.util.Scanner;
-import oregontrail.view.Player;
+import oregontrail.model.Player;
 
 /**
  *

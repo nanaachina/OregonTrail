@@ -3,12 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oregontrail.model;
+package oregontrail.view;
+
+import java.io.Serializable;
+
+
+
 
 /**
  *
  * @author adm-achina
  */
-public class InventoryItem {
-    
+public enum QuestionType implements Serializable{
+    start,
+    riverCross,
+    trade;
 }

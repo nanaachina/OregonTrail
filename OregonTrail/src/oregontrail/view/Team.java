@@ -7,6 +7,7 @@ package oregontrail.view;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import oregontrail.model.Game;
 
 /**
  *

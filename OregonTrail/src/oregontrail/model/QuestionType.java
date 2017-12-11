@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oregontrail.view;
+package oregontrail.model;
 
 import java.io.Serializable;
-
-
-
 
 /**
  *

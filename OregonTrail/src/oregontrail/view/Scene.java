@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oregontrail.model;
+package oregontrail.view;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -121,3 +121,4 @@ public class Scene implements Serializable {
     
     
 }
+

@@ -10,5 +10,26 @@ package oregontrail.control;
  * @author adm-achina
  */
 public class RiverControl {
-    
+    public int riverCrossing (int river, int crossingType) {
+        int success = 1;
+        
+        if (river == 2 & crossingType == 1) {
+            return -1;
+        }
+        
+        if (river == 3 & crossingType == 1){
+            return -1;
+        }
+        
+        if (river == 3 & crossingType == 2){
+            return -1;
+        }
+        
+        if (river == 1 & crossingType == 1 - 4){
+            return 1;
+        }
+        
+        return success;
+    }    
 }
+
